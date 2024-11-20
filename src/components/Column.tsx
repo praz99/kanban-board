@@ -2,13 +2,15 @@ import { ReactNode } from "react";
 
 import { useDroppable } from "@dnd-kit/core";
 
-type DroppableType = {
+// import { MdAddCircle } from "react-icons/md";
+
+type ColumnType = {
   id: string;
   title: string;
   children: ReactNode;
 };
 
-const Droppable = ({ id, title, children }: DroppableType) => {
+const Column = ({ id, title, children }: ColumnType) => {
   const { isOver, setNodeRef } = useDroppable({
     id,
   });
@@ -16,14 +18,17 @@ const Droppable = ({ id, title, children }: DroppableType) => {
   return (
     <div
       ref={setNodeRef}
-      className={`w-full h-full border border-gray-400 p-2 rounded-t-md ${
+      className={`flex flex-col gap-2 w-full h-full border border-gray-400 p-2 rounded-t-md ${
         isOver ? "bg-slate-200" : "bg-slate-300"
       }`}
     >
       <p className="text-center text-sm font-bold">{title}</p>
-      <div className="flex flex-col mt-2">{children}</div>
+      <div className="flex flex-col gap-2">{children}</div>
+      {/* <button className="self-center" tabIndex={1} onClick={() => {}}>
+        <MdAddCircle size={20} />
+      </button> */}
     </div>
   );
 };
 
-export default Droppable;
+export default Column;

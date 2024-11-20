@@ -19,7 +19,7 @@ const DraggableItem = ({ id, children }: DraggableItemType) => {
   return (
     <div
       ref={setNodeRef}
-      className={`bg-white border border-slate-100 w-full min-h-12 rounded-md`}
+      className={`bg-white border border-slate-100 w-full min-h-12 rounded-md p-1`}
       style={style}
       {...listeners}
       {...attributes}
