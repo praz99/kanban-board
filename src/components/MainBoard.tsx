@@ -3,12 +3,13 @@ import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import Column from "./Column";
 import DraggableItem from "./DraggableItem";
 import { columnsData } from "../data";
+import { ColumnsData } from "../types";
 
 // Storage key for localStorage
 const STORAGE_KEY = "kanban-board-columns";
 
 const MainBoard = () => {
-  const [columns, setColumns] = useState(() => {
+  const [columns, setColumns] = useState<ColumnsData>(() => {
     const savedColumns = localStorage.getItem(STORAGE_KEY);
     return savedColumns ? JSON.parse(savedColumns) : columnsData;
   });

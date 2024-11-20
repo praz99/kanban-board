@@ -1,4 +1,6 @@
-export const columnsData = [
+import { ColumnsData } from "./types";
+
+export const columnsData: ColumnsData = [
   {
     id: "A",
     items: [
